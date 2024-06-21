@@ -19,13 +19,11 @@ Examples:
 def ips_between(start, end):
     start = [int(x) for x in start.split('.')]
     end = [int(x) for x in end.split('.')]
-    ips_diff = {i:end[i] - start[i] for i in range(4)}
     
     num_s = start[3] + start[2]*256 +start[1]*256**2 + start[0]*256**3
     num_e = end[3] + end[2]*256 + end[1]*256**2 + end[0]*256**3
 
-        
-    return num_e -num_s
+    return abs(num_e - num_s)
 
 
 print(ips_between("10.0.0.0", "10.0.0.50"))
